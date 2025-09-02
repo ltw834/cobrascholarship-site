@@ -8,3 +8,6 @@ secrets/
 # keep backups out of git except the guard file
 _staging/backups/*
 !_staging/backups/.htaccess
+vendor/
+.env
+.vscode/sftp.json

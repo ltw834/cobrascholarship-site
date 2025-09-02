@@ -3,58 +3,39 @@ name: Deploy to web host (FTPS)
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "_staging/**"
-      - ".github/workflows/deploy.yml"
   workflow_dispatch:
-
-concurrency:
-  group: ftps-deploy
-  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Install lftp
-        run: sudo apt-get update && sudo apt-get install -y lftp
+    - name: Preflight FTPS with curl
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USER }}
+        FTP_PASS: ${{ secrets.FTP_PASS }}
+        FTP_REMOTE: ${{ secrets.FTP_REMOTE }}
+      run: |
+        set -euo pipefail
+        curl --fail --silent --show-error --ftp-ssl --ssl-reqd \
+          -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/$FTP_REMOTE" >/dev/null
 
-      - name: Preflight: FTPS LIST
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          FTP_REMOTE: ${{ secrets.FTP_REMOTE }}
-        run: |
-          set -e
-          curl --fail --silent --show-error --ftp-ssl --ssl-reqd \
-               --user "$FTP_USER:$FTP_PASS" \
-               "ftp://$FTP_HOST/$FTP_REMOTE" -l | head -n 10
+    - name: Install lftp
+      run: sudo apt-get update && sudo apt-get -y install lftp
 
-      - name: Deploy via lftp mirror
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          FTP_REMOTE: ${{ secrets.FTP_REMOTE }}
-        run: |
-          set -e
-          echo "Syncing _staging/ -> $FTP_REMOTE on $FTP_HOST"
-          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" -e "
-            set ftp:ssl-force true;
-            set ssl:verify-certificate no;
-            set net:max-retries 2;
-            set net:persist-retries 1;
-            set mirror:parallel-transfer-count 4;
-            set xfer:log true;
-            cd $FTP_REMOTE;
-            mirror --reverse --verbose \
-                   --only-newer --continue --parallel=4 \
-                   --exclude-glob .git* \
-                   --exclude-glob .vscode* \
-                   --exclude-glob *.log \
-                   --exclude-glob .DS_Store \
-                   _staging/ . ;
-            bye"
+    - name: Deploy _staging -> public_html via FTPS
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USER }}
+        FTP_PASS: ${{ secrets.FTP_PASS }}
+        FTP_REMOTE: ${{ secrets.FTP_REMOTE }}
+      run: |
+        set -euo pipefail
+        lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" -e "
+        set ftp:ssl-force true; set ssl:verify-certificate no; set ftp:passive-mode true;
+        cd $FTP_REMOTE;
+        mirror --reverse --verbose --only-newer _staging ./;
+        bye"
