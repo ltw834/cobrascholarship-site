@@ -11,54 +11,137 @@ function esc($s){ return htmlspecialchars($s ?? '', ENT_QUOTES | ENT_SUBSTITUTE,
 function nl2br_html($s){ return nl2br(esc($s)); }
 
 // Collect inputs
-$student_full_name = v('student_full_name');
-$student_dob       = v('student_dob');
-$school_grade      = v('school_grade');
-$student_phone     = v('student_phone');
-$parent_name       = v('parent_name');
-$email             = v('email');
-$parent_phone      = v('parent_phone');
-$home_address      = v('home_address');
-$trained_before    = v('trained_before');
-$training_details  = v('training_details');
-$motivation        = v('motivation');
-$income_range      = v('income_range');
-$household_size    = v('household_size');
-$need_reason       = v('need_reason');
-$commit_attendance = v('commit_attendance');
-$confirm_location_age = v('confirm_location_age');
-$commit_character  = v('commit_character');
-$signature         = v('signature');
-$signature_date    = v('signature_date');
-$consent           = v('consent');
+$full_name = v('full_name');
+$age = v('age');
+$email = v('email');
+$phone = v('phone');
+$city_zip = v('city_zip');
+$school_grade = v('school_grade');
+
+// Parent/Guardian info
+$guardian_name = v('guardian_name');
+$guardian_relationship = v('guardian_relationship');
+$guardian_phone = v('guardian_phone');
+$guardian_email = v('guardian_email');
+
+// Eligibility (checkboxes)
+$eligibility = isset($_POST['eligibility']) ? $_POST['eligibility'] : [];
+$other_hardship = v('other_hardship');
+
+// Support needed (checkboxes)
+$support = isset($_POST['support']) ? $_POST['support'] : [];
+
+// Short answers
+$why_bjj = v('why_bjj');
+$goals = v('goals');
+$additional_info = v('additional_info');
+
+// Consent
+$confirm_true = v('confirm_true');
+$confirm_attendance = v('confirm_attendance');
+$confirm_age_approval = v('confirm_age_approval');
 
 // Server-side required checks
 foreach ([
-  'student_full_name'=>$student_full_name,'student_dob'=>$student_dob,'parent_name'=>$parent_name,
-  'email'=>$email,'parent_phone'=>$parent_phone,'home_address'=>$home_address,
-  'motivation'=>$motivation,'income_range'=>$income_range,'need_reason'=>$need_reason,
-  'commit_attendance'=>$commit_attendance,'confirm_location_age'=>$confirm_location_age,
-  'commit_character'=>$commit_character,'signature'=>$signature,'signature_date'=>$signature_date,'consent'=>$consent
-] as $k=>$vval){
-  if ($vval===''){ http_response_code(400); exit('Missing required field: '.$k); }
+    'full_name' => $full_name,
+    'age' => $age,
+    'email' => $email,
+    'phone' => $phone,
+    'city_zip' => $city_zip,
+    'why_bjj' => $why_bjj,
+    'goals' => $goals,
+    'confirm_true' => $confirm_true,
+    'confirm_attendance' => $confirm_attendance,
+    'confirm_age_approval' => $confirm_age_approval
+] as $k => $vval) {
+    if ($vval === '') {
+        http_response_code(400);
+        exit('Missing required field: ' . $k);
+    }
+}
+
+// Additional validation for age
+if (!is_numeric($age) || $age < 4 || $age > 26) {
+    http_response_code(400);
+    exit('Age must be between 4 and 26');
+}
+
+// Check if guardian info is required and present
+if ($age < 18) {
+    foreach ([
+        'guardian_name' => $guardian_name,
+        'guardian_relationship' => $guardian_relationship,
+        'guardian_phone' => $guardian_phone,
+        'guardian_email' => $guardian_email
+    ] as $k => $vval) {
+        if ($vval === '') {
+            http_response_code(400);
+            exit('Missing required guardian field for minor: ' . $k);
+        }
+    }
 }
 
 // Build HTML table
 $rows = [
-  'Student Name'=>$student_full_name, 'DOB'=>$student_dob, 'School/Grade'=>$school_grade,
-  'Student Phone'=>$student_phone, 'Contact Name'=>$parent_name, 'Email'=>$email,
-  'Phone'=>$parent_phone, 'Home Address'=>$home_address, 'Trained Before'=>$trained_before,
-  'Training Details'=>$training_details, 'Motivation'=>$motivation,
-  'Household Income'=>$income_range, 'Household Size'=>$household_size,
-  'Reason for Need'=>$need_reason, 'Commit Attendance'=>$commit_attendance?'Yes':'No',
-  'Confirm Location/Age'=>$confirm_location_age?'Yes':'No',
-  'Commit Character'=>$commit_character?'Yes':'No',
-  'Signature'=>$signature, 'Signature Date'=>$signature_date, 'Consent'=>$consent?'Yes':'No'
+    'A) Applicant Information' => [
+        'Full Name' => $full_name,
+        'Age' => $age,
+        'Email' => $email,
+        'Phone' => $phone,
+        'City and ZIP' => $city_zip,
+        'School & Grade' => $school_grade
+    ],
+    'B) Parent/Guardian Information' => [
+        'Guardian Name' => $guardian_name,
+        'Relationship to Applicant' => $guardian_relationship,
+        'Guardian Phone' => $guardian_phone,
+        'Guardian Email' => $guardian_email
+    ],
+    'C) Eligibility' => [
+        'Eligibility Programs' => implode(", ", array_map(function($item) {
+            $labels = [
+                'frpl' => 'Free/Reduced-Price Lunch',
+                'snap' => 'SNAP/EBT',
+                'medicaid' => 'Medicaid/CHIP',
+                'housing' => 'Housing Assistance',
+                'benefits' => 'Unemployment/SSI/Disability',
+                'single_parent' => 'Single-Parent Household'
+            ];
+            return $labels[$item] ?? $item;
+        }, $eligibility)),
+        'Other Hardship' => $other_hardship
+    ],
+    'D) Support Needed' => [
+        'Types of Support' => implode(", ", array_map(function($item) {
+            $labels = [
+                'tuition' => 'Tuition Assistance',
+                'uniform' => 'Uniform & Gear',
+                'competition' => 'Competition Support',
+                'mentorship' => 'Mentorship Program'
+            ];
+            return $labels[$item] ?? $item;
+        }, $support))
+    ],
+    'E) Short Answers' => [
+        'Why BJJ?' => $why_bjj,
+        'Six Month Goals' => $goals,
+        'Additional Information' => $additional_info
+    ],
+    'F) Consent' => [
+        'Information is True' => $confirm_true ? 'Yes' : 'No',
+        'Understands Requirements' => $confirm_attendance ? 'Yes' : 'No',
+        'Age/Guardian Approval' => $confirm_age_approval ? 'Yes' : 'No'
+    ]
 ];
 
 $tbl = '<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse">';
-foreach ($rows as $label=>$value){
-  $tbl .= '<tr><th align="left" style="background:#f6f8fb;">'.esc($label).'</th><td>'.nl2br_html($value).'</td></tr>';
+foreach ($rows as $section => $fields) {
+    $tbl .= '<tr><th align="left" colspan="2" style="background:#e5e9f0;font-size:1.1em;padding:10px">'.esc($section).'</th></tr>';
+    foreach ($fields as $label => $value) {
+        if ($value !== '') {  // Only show non-empty fields
+            $tbl .= '<tr><th align="left" style="background:#f6f8fb;">'.esc($label).'</th><td>'.nl2br_html($value).'</td></tr>';
+        }
+    }
 }
 $tbl .= '</table>';
 

@@ -49,141 +49,184 @@
   <main class="wrap">
     <header>
       <h1>Apply for a Cobra Youth Scholarship</h1>
-      <p>Complete this application. If selected and funding is available, weÅfll contact you. Fields marked <span class="req">*</span> are required.</p>
+      <p>Complete this application. If selected and funding is available, we'll contact you. Fields marked <span class="req">*</span> are required.</p>
     </header>
 
     <section class="card">
-      <!-- LIVE: posts to your PHP handler -->
       <form action="/apply-handler.php" method="POST" accept-charset="UTF-8">
         <input type="text" name="_honey" style="display:none" aria-hidden="true">
 
+        <!-- A) Applicant Info -->
         <fieldset>
-          <legend>Student Information</legend>
-          <div class="row two">
+          <legend>A) Applicant Information</legend>
+          <div class="row">
             <div>
-              <label for="student_full_name">Full Name <span class="req">*</span></label>
-              <input id="student_full_name" name="student_full_name" type="text" required placeholder="Student's full legal name">
-            </div>
-            <div>
-              <label for="student_dob">Date of Birth <span class="req">*</span></label>
-              <input id="student_dob" name="student_dob" type="date" required>
+              <label for="full_name">Full Name <span class="req">*</span></label>
+              <input id="full_name" name="full_name" type="text" required>
             </div>
           </div>
-
           <div class="row two">
             <div>
-              <label for="school_grade">School and Grade</label>
-              <input id="school_grade" name="school_grade" type="text" placeholder="e.g., Haggard MS, 7th grade">
+              <label for="age">Age <span class="req">*</span></label>
+              <input id="age" name="age" type="number" min="4" max="26" required>
+              <div class="hint">Must be between 4 and 26 years old</div>
             </div>
             <div>
-              <label for="student_phone">Student Phone (optional)</label>
-              <input id="student_phone" name="student_phone" type="tel" inputmode="tel" placeholder="(###) ###-####">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required>
+            </div>
+          </div>
+          <div class="row two">
+            <div>
+              <label for="phone">Phone <span class="req">*</span></label>
+              <input id="phone" name="phone" type="tel" required>
+            </div>
+            <div>
+              <label for="city_zip">City and ZIP <span class="req">*</span></label>
+              <input id="city_zip" name="city_zip" type="text" required placeholder="e.g., Plano, 75025">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="school_grade">School & Grade (if in school)</label>
+              <input id="school_grade" name="school_grade" type="text" placeholder="e.g., Plano Senior High, 11th grade">
             </div>
           </div>
         </fieldset>
 
+        <!-- B) Parent/Guardian -->
         <fieldset>
-          <legend>Primary Contact</legend>
-          <p class="hint">Use parent/guardian info for minors. Adults can enter their own info.</p>
+          <legend>B) Parent/Guardian Information (If Under 18)</legend>
           <div class="row two">
             <div>
-              <label for="parent_name">Contact Name <span class="req">*</span></label>
-              <input id="parent_name" name="parent_name" type="text" required placeholder="Parent/guardian or applicant (18+)">
+              <label for="guardian_name">Parent/Guardian Full Name <span class="req">*</span></label>
+              <input id="guardian_name" name="guardian_name" type="text">
+              <div class="hint">Required if applicant is under 18</div>
             </div>
             <div>
-              <label for="email">Best Contact Email <span class="req">*</span></label>
-              <input id="email" name="email" type="email" required placeholder="name@example.com">
+              <label for="guardian_relationship">Relationship to Applicant <span class="req">*</span></label>
+              <input id="guardian_relationship" name="guardian_relationship" type="text" placeholder="e.g., Mother, Father, Legal Guardian">
             </div>
           </div>
           <div class="row two">
             <div>
-              <label for="parent_phone">Phone <span class="req">*</span></label>
-              <input id="parent_phone" name="parent_phone" type="tel" inputmode="tel" required placeholder="(###) ###-####">
+              <label for="guardian_phone">Parent/Guardian Phone <span class="req">*</span></label>
+              <input id="guardian_phone" name="guardian_phone" type="tel">
             </div>
             <div>
-              <label for="home_address">Home Address <span class="req">*</span></label>
-              <input id="home_address" name="home_address" type="text" required placeholder="Street, City, State ZIP">
+              <label for="guardian_email">Parent/Guardian Email <span class="req">*</span></label>
+              <input id="guardian_email" name="guardian_email" type="email">
             </div>
           </div>
         </fieldset>
 
+        <!-- C) Eligibility -->
         <fieldset>
-          <legend>Background</legend>
-          <label>Has the student trained in martial arts before? <span class="req">*</span></label>
-          <div class="checks" role="radiogroup" aria-label="Has trained before">
-            <label class="check"><input type="radio" name="trained_before" value="Yes" required> Yes</label>
-            <label class="check"><input type="radio" name="trained_before" value="No" required> No</label>
-          </div>
-
-          <label for="training_details">If yes, brief details</label>
-          <textarea id="training_details" name="training_details" placeholder="Styles, years trained, gyms, etc."></textarea>
-
-          <label for="motivation">Why would you like to participate in this program? <span class="req">*</span></label>
-          <textarea id="motivation" name="motivation" required placeholder="Tell us about goals, challenges, and why BJJ would help."></textarea>
-        </fieldset>
-
-        <fieldset>
-          <legend>Financial Need</legend>
-          <div class="row two">
-            <div>
-              <label for="income_range">Household Income Range <span class="req">*</span></label>
-              <select id="income_range" name="income_range" required>
-                <option value="">Select one</option>
-                <option>Under $25,000</option>
-                <option>$25,000 - $50,000</option>
-                <option>$50,000 - $75,000</option>
-                <option>$75,000+</option>
-                <option>Prefer not to say</option>
-              </select>
-            </div>
-            <div>
-              <label for="household_size">Household Size</label>
-              <input id="household_size" name="household_size" type="text" inputmode="numeric" placeholder="Number of people in household">
-            </div>
-          </div>
-          <label for="need_reason">Please share why financial assistance is needed <span class="req">*</span></label>
-          <textarea id="need_reason" name="need_reason" required placeholder="Brief explanation of current financial situation."></textarea>
-        </fieldset>
-
-        <fieldset>
-          <legend>Understanding &amp; Commitment</legend>
+          <legend>C) Eligibility Snapshot</legend>
+          <p class="hint">Check all that apply</p>
           <div class="checks">
             <label class="check">
-              <input type="checkbox" name="commit_attendance" value="Yes" required>
-              <span>I understand scholarships require at least 8 classes per month, good conduct, and participation in mentorship activities. <span class="req">*</span></span>
+              <input type="checkbox" name="eligibility[]" value="frpl">
+              <span>Free/Reduced-Price Lunch (FRPL)</span>
             </label>
             <label class="check">
-              <input type="checkbox" name="confirm_location_age" value="Yes" required>
-              <span>I live near Plano (North Dallas) and meet the age requirement (ages 4 to 26). <span class="req">*</span></span>
+              <input type="checkbox" name="eligibility[]" value="snap">
+              <span>SNAP / EBT</span>
             </label>
             <label class="check">
-              <input type="checkbox" name="commit_character" value="Yes" required>
-              <span>I will be responsible, keep up with schoolwork, and represent the program with respect and discipline. <span class="req">*</span></span>
+              <input type="checkbox" name="eligibility[]" value="medicaid">
+              <span>Medicaid / CHIP</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="eligibility[]" value="housing">
+              <span>Housing assistance (e.g., Section 8)</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="eligibility[]" value="benefits">
+              <span>Unemployment / SSI / disability benefits</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="eligibility[]" value="single_parent">
+              <span>Single-parent household</span>
+            </label>
+          </div>
+          <div class="row" style="margin-top: 14px;">
+            <div>
+              <label for="other_hardship">Other financial hardship (brief note)</label>
+              <input id="other_hardship" name="other_hardship" type="text">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- D) Support Needed -->
+        <fieldset>
+          <legend>D) What support do you need?</legend>
+          <p class="hint">Check all that apply</p>
+          <div class="checks">
+            <label class="check">
+              <input type="checkbox" name="support[]" value="tuition">
+              <span>Tuition assistance</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="support[]" value="uniform">
+              <span>Uniform & gear</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="support[]" value="competition">
+              <span>Competition support</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="support[]" value="mentorship" checked>
+              <span>Mentorship program</span>
             </label>
           </div>
         </fieldset>
 
+        <!-- E) Short Answers -->
         <fieldset>
-          <legend>Digital Signature</legend>
-          <div class="row two">
+          <legend>E) Short Answers</legend>
+          <div class="row">
             <div>
-              <label for="signature">Signature (type full name) <span class="req">*</span></label>
-              <input id="signature" name="signature" type="text" required placeholder="Full name">
-            </div>
-            <div>
-              <label for="signature_date">Date <span class="req">*</span></label>
-              <input id="signature_date" name="signature_date" type="date" required>
+              <label for="why_bjj">Why do you want to train Brazilian Jiu-Jitsu? <span class="req">*</span></label>
+              <textarea id="why_bjj" name="why_bjj" required placeholder="2-3 sentences"></textarea>
             </div>
           </div>
-          <label class="check" style="margin-top:10px">
-            <input id="consent" type="checkbox" name="consent" value="Yes" required>
-            <span>I consent to the collection and review of this application for scholarship consideration. <span class="req">*</span></span>
-          </label>
+          <div class="row">
+            <div>
+              <label for="goals">What goals would you like to reach in the next 6 months? <span class="req">*</span></label>
+              <textarea id="goals" name="goals" required placeholder="2-3 sentences"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="additional_info">Anything else we should know? (optional)</label>
+              <textarea id="additional_info" name="additional_info" placeholder="2-3 sentences"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- F) Consent -->
+        <fieldset>
+          <legend>F) Consent & Acknowledgments</legend>
+          <div class="checks">
+            <label class="check">
+              <input type="checkbox" name="confirm_true" value="yes" required>
+              <span>I confirm the information provided is true. <span class="req">*</span></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="confirm_attendance" value="yes" required>
+              <span>I understand regular attendance and positive behavior are required. <span class="req">*</span></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="confirm_age_approval" value="yes" required>
+              <span>I am 18+ or my parent/guardian listed above approves this application. <span class="req">*</span></span>
+            </label>
+          </div>
         </fieldset>
 
         <div class="actions">
           <button type="submit">Submit Application</button>
-          <span class="note">YouÅfll be redirected to the thank-you page after submission.</span>
+          <span class="note">You'll be redirected to a confirmation page after submission.</span>
         </div>
       </form>
     </section>
