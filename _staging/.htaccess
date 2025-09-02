@@ -108,3 +108,4 @@ RedirectMatch 404 ^/(\.git|\.env|\.vscode)(/|$)
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^cobrascholarship\.org$ [NC]
 RewriteRule ^ https://cobrascholarship.org%{REQUEST_URI} [R=301,L]
+RedirectMatch 404 ^/(\.git|\.env|\.vscode)(/|$)

@@ -13,11 +13,32 @@ if (!$name || !$email || !$msg) fail('Missing fields');
 
 $body = "Name: $name\nEmail: $email\n\n$msg\n";
 
-/*
-  TODO: send email via SMTP (PHPMailer). Do NOT hardcode secrets.
-  Placeholder success for now:
-*/
-$ok = true;
+require __DIR__ . '/vendor/autoload.php';
+$conf = require __DIR__ . '/../secrets/smtp_config.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer(true);
+try {
+  $mail->isSMTP();
+  $mail->Host = $conf['host'];
+  $mail->Port = $conf['port'];
+  $mail->SMTPAuth = true;
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Username = $conf['user'];
+  $mail->Password = $conf['pass'];
+  $mail->setFrom($conf['from_email'], $conf['from_name']);
+  $mail->addAddress($conf['from_email']); // send to site inbox
+  $mail->addReplyTo($email, $name);
+  $mail->Subject = 'New Scholarship Application';
+  $mail->Body = $body;
+  $mail->send();
+  $ok = true;
+} catch (Exception $e) {
+  $ok = false;
+}
+
 
 if ($ok){
   header("Location: /thank-you.html", true, 303);
