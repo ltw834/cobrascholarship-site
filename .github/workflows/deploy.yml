@@ -1,6 +1,7 @@
 name: Deploy to web host (FTPS)
 on:
   push:
+  workflow_dispatch:
     branches: [ "main" ]
     paths:
       - "_staging/**"
