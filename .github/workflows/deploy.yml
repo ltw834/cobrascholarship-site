@@ -1,40 +1,21 @@
 name: Deploy to web host (FTPS)
-
 on:
-  push:
-    branches: [ "main" ]
+  push: { branches: [main] }
   workflow_dispatch:
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Install lftp & curl
-        run: sudo apt-get update && sudo apt-get install -y lftp curl
-
-      - name: Preflight (FTPS listing)
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          FTP_REMOTE: ${{ secrets.FTP_REMOTE }}
-        run: |
-          curl --fail --silent --show-error --ftp-ssl --ssl-reqd \
-            -u "${FTP_USER}:${FTP_PASS}" "ftps://${FTP_HOST}/${FTP_REMOTE}" >/dev/null
-
-      - name: Deploy _staging → public_html (FTPS)
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          FTP_REMOTE: ${{ secrets.FTP_REMOTE }}
-        run: |
-          lftp -u "${FTP_USER}","${FTP_PASS}" "${FTP_HOST}" -e "
-            set ftp:ssl-force true; set ssl:verify-certificate no;
-            set ftp:passive-mode true; set net:max-retries 2; set net:timeout 30; set xfer:clobber yes;
-            cd ${FTP_REMOTE};
-            mirror --reverse --verbose --only-newer --parallel=2 _staging ./;
-            bye"
+      - uses: actions/checkout@v4
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:     ${{ secrets.FTP_HOST }}
+          username:   ${{ secrets.FTP_USER }}
+          password:   ${{ secrets.FTP_PASS }}
+          protocol:   ftps
+          port:       21
+          server-dir: /${{ secrets.FTP_REMOTE }}   # e.g. /public_html/
+          local-dir:  _staging
+          dangerous-clean-slate: false
+          state-name: .ftp-deploy-sync.json
