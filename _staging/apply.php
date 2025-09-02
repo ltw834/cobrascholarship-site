@@ -1,20 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apply for a Cobra Youth Scholarship</title>
   <meta name="description" content="Apply for a Brazilian Jiu-Jitsu scholarship for underserved youth in North Dallas/Plano." />
   <link rel="icon" type="image/png" href="/favicon.png">
   <style>
     :root{
-      --bg:#f5f7fb; --panel:#fff; --ink:#0b1220; --muted:#6b7380;
-      --ring:rgba(22,163,74,.18); --brand:#16a34a; --brand-600:#15803d;
-      --line:#e8edf3; --radius:18px; --maxw:960px;
+      /* Light, optimistic palette */
+      --bg:#f6f8fb;          /* page background */
+      --panel:#ffffff;       /* cards */
+      --text:#0b0f16;        /* near-black */
+      --muted:#5b6676;       /* slate */
+      --brand:#16a34a;       /* green */
+      --brand-600:#15803d;   /* darker hover */
+      --ring:rgba(22,163,74,.18);
+      --soft:#eef6f1;        /* soft green tint */
+      --radius:22px;
+      --maxw:1120px;
+      --shadow:0 12px 28px rgba(16,24,40,.08);
+      --inset:inset 0 0 0 1px #e7ecf2;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    .wrap{max-width:var(--maxw);margin:48px auto;padding:0 20px}
+    body{
+      margin:0;background:
+        radial-gradient(900px 500px at 10% -10%, #e8f4ec 0%, rgba(232,244,236,0) 60%),
+        radial-gradient(900px 600px at 110% 20%, #f2f7ff 0%, rgba(242,247,255,0) 55%),
+        var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* Layout shell */
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
+
+    /* Header (light, sticky) */
+    .header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.75);
+      backdrop-filter:saturate(130%) blur(10px);
+      border-bottom:1px solid #e9eef4;
+    }
+    .header-inner{max-width:var(--maxw);margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;font-weight:700;font-size:1.25rem;gap:12px}
+    .logo img{height:38px;width:auto}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{font-weight:600}
+    .nav-links a:hover{color:var(--brand)}
+    .home-button{background:var(--brand);color:#fff;padding:10px 18px;border-radius:12px;font-weight:600}
+    .home-button:hover{background:var(--brand-600)}
+
+    /* Form styles */
+    .wrap{max-width:960px;margin:48px auto;padding:0 20px}
     header h1{font-size:38px;line-height:1.15;margin:0 0 6px}
     header p{color:var(--muted);margin:0 0 20px}
     .card{background:var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 36px rgba(10,18,31,.06);padding:26px}
@@ -46,6 +87,19 @@
   </style>
 </head>
 <body>
+  <!-- Header with navigation -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="Cobra Youth Scholarship Foundation" height="38">
+        Cobra Scholarship
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="home-button">Back to Home</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="wrap">
     <header>
       <h1>Apply for a Cobra Youth Scholarship</h1>
