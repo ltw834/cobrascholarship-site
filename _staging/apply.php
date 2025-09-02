@@ -90,9 +90,9 @@
   <!-- Header with navigation -->
   <header class="header">
     <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="Cobra Youth Scholarship Foundation" height="38">
-        Cobra Scholarship
+      <a href="/" class="logo" aria-label="COBRA Youth Scholarship Foundation">
+        <img src="/logo.png" alt="COBRA Youth Scholarship Foundation" height="38">
+        <span style="font-size:1rem;line-height:1">COBRA Youth Scholarship Foundation</span>
       </a>
       <nav class="nav-links">
         <a href="/" class="home-button">Back to Home</a>
