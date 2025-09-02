@@ -1,0 +1,5 @@
+.vscode/
+public_html/
+backups/
+*.log
+.DS_Store
