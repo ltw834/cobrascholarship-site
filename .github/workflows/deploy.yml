@@ -1,0 +1,24 @@
+name: Deploy to web host (FTPS)
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "_staging/**"
+      - ".github/workflows/deploy.yml"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy _staging -> public_html via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          protocol: ftps
+          port: 21
+          local-dir: _staging/
+          server-dir: ${{ secrets.FTP_REMOTE }}
+          dangerous-clean-slate: false
+          log-level: verbose
