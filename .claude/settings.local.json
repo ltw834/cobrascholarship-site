@@ -18,7 +18,11 @@
       "Bash(git merge:*)",
       "Bash(mkdir:*)",
       "Bash(git fetch:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Read(/Users/bugattimacstudio/**)",
+      "Read(/Users/bugattimacstudio/Downloads/**)",
+      "Read(/Users/bugattimacstudio/**)",
+      "Read(/Users/bugattimacstudio/**)"
     ],
     "deny": [],
     "ask": []
