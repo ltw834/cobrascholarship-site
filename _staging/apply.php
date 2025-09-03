@@ -106,10 +106,7 @@
           Cobra Scholarship
         </a>
         <nav class="nav">
-          <a href="/programs">Programs</a>
-          <a href="/impact">Impact</a>
-          <a href="/about">About</a>
-          <a href="/faq">FAQ</a>
+          <a href="/" class="donate-btn" style="background:transparent;color:inherit;border-radius:8px;padding:8px 12px;border:1px solid transparent;text-decoration:none;">Back to Home</a>
           <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" class="donate-btn">Donate</a>
         </nav>
       </div>
