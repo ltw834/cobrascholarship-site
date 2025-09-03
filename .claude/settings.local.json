@@ -12,7 +12,9 @@
       "Bash(/dev/null)",
       "Bash(brew install:*)",
       "Read(/tmp/**)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(php -l:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

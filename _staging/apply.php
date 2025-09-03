@@ -40,25 +40,6 @@
     .start-btn:hover{background:var(--brand-600)}
     .start-btn svg{width:20px;height:20px}
     
-    /* Eligibility Section */
-    .eligibility{margin-bottom:56px}
-    .section-header{text-align:center;margin-bottom:40px}
-    .section-header h2{font-size:32px;margin:0 0 12px;font-weight:700}
-    .section-header p{font-size:18px;color:var(--muted)}
-    
-    .eligibility-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-bottom:32px}
-    .eligibility-card{background:var(--panel);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
-    .eligibility-card h3{font-size:22px;margin:0 0 16px;color:var(--brand);font-weight:700}
-    .eligibility-card ul{margin:0;padding:0;list-style:none}
-    .eligibility-card li{padding:8px 0;display:flex;align-items:flex-start;gap:12px}
-    .eligibility-card li::before{content:"✓";color:var(--brand);font-weight:bold;margin-top:2px}
-    
-    /* Requirements */
-    .requirements{background:var(--brand-light);border-radius:var(--radius);padding:32px;margin:32px 0}
-    .requirements h3{font-size:24px;margin:0 0 16px;color:var(--brand)}
-    .requirements ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
-    .requirements li{padding:8px 0;display:flex;align-items:flex-start;gap:12px}
-    .requirements li::before{content:"•";color:var(--brand);font-weight:bold;font-size:20px}
     
     /* Form Section */
     .form-section{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:40px;margin-top:48px}
@@ -92,7 +73,6 @@
     @media (max-width:767px){
       .page-header h1{font-size:32px}
       .page-header p{font-size:18px}
-      .eligibility-card{padding:24px}
       .form-section{padding:24px}
     }
   </style>
@@ -127,56 +107,6 @@
         </a>
       </section>
 
-      <!-- Eligibility Section -->
-      <section class="eligibility">
-        <div class="section-header">
-          <h2>Who Qualifies?</h2>
-          <p>Check if you meet our scholarship criteria</p>
-        </div>
-        
-        <div class="eligibility-grid">
-          <div class="eligibility-card">
-            <h3>Age & Location</h3>
-            <ul>
-              <li>Ages 4-26 years old</li>
-              <li>Live in North Dallas/Plano area</li>
-              <li>US residents preferred</li>
-            </ul>
-          </div>
-          
-          <div class="eligibility-card">
-            <h3>Financial Need</h3>
-            <ul>
-              <li>Free/reduced lunch eligible</li>
-              <li>SNAP, Medicaid, or housing assistance</li>
-              <li>Single-parent household</li>
-              <li>Other documented financial hardship</li>
-            </ul>
-          </div>
-          
-          <div class="eligibility-card">
-            <h3>Commitment Level</h3>
-            <ul>
-              <li>Regular attendance (2-3x per week)</li>
-              <li>Positive attitude and respect</li>
-              <li>Willingness to learn and grow</li>
-              <li>6+ month commitment preferred</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="requirements">
-          <h3>What You'll Need to Apply</h3>
-          <ul>
-            <li>Basic contact information</li>
-            <li>Parent/guardian info (if under 18)</li>
-            <li>Brief explanation of financial need</li>
-            <li>Short answers about your goals</li>
-            <li>Proof of age (birth certificate or school ID)</li>
-            <li>Income documentation (if selected)</li>
-          </ul>
-        </div>
-      </section>
 
       <!-- Application Form -->
       <section class="form-section" id="application-form">
@@ -308,7 +238,7 @@
                 <span>Competition support</span>
               </label>
               <label class="checkbox-item">
-                <input type="checkbox" name="support[]" value="mentorship" checked>
+                <input type="checkbox" name="support[]" value="mentorship">
                 <span>Mentorship program</span>
               </label>
             </div>
