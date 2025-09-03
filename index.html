@@ -220,7 +220,7 @@
       </a>
       <div style="display:flex;gap:12px;">
         <a class="btn btn-ghost" href="apply.html">Apply</a>
-        <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G">Donate</a>
+        <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn">Donate</a>
       </div>
     </div>
   </header>
@@ -239,7 +239,7 @@
         <!-- Hero CTA Buttons -->
         <div class="cta-bar">
           <a class="btn btn-ghost" href="apply.html">Apply Now</a>
-          <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G">Donate Now</a>
+          <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn">Donate Now</a>
         </div>
 
         <!-- Hero photo: Image 1 - Kids in BJJ formation -->
@@ -393,27 +393,27 @@
       <!-- Donation Impact Tiers -->
       <div style="margin-top:32px;">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="background:#fff;padding:20px;border-radius:16px;border:2px solid var(--brand);text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="background:#fff;padding:20px;border-radius:16px;border:2px solid var(--brand);text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
             <h4 style="color:var(--brand);margin:0 0 8px;font-size:24px;">$2,540 — Full Scholarship</h4>
             <p style="margin:0;font-weight:600;">Sponsors a student for one full year. Includes unlimited training, mentorship, gear, and tournament support.</p>
           </a>
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
             <h4 style="color:var(--brand);margin:0 0 8px;font-size:24px;">$1,270 — Half Scholarship</h4>
             <p style="margin:0;font-weight:600;">Covers 50% of the annual program. Helps a student stay on the mats with training and mentorship while reducing their total cost by half.</p>
           </a>
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
             <h4 style="color:var(--brand);margin:0 0 8px;font-size:24px;">$212 — Monthly Scholarship</h4>
             <p style="margin:0;font-weight:600;">Provides one month of a student's full program, including training, mentorship, and enrollment fees.</p>
           </a>
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
             <h4 style="color:var(--brand);margin:0 0 8px;font-size:24px;">$200 — Uniform & Gear Package</h4>
             <p style="margin:0;font-weight:600;">Equips a student with everything needed to begin training.</p>
           </a>
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
             <h4 style="color:var(--brand);margin:0 0 8px;font-size:24px;">$120 — Tournament Support</h4>
             <p style="margin:0;font-weight:600;">Covers up to $120 of one tournament entry for a student.</p>
           </a>
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;text-decoration:none;color:inherit;display:block;transition:all 0.3s ease;">
             <h4 style="color:var(--brand);margin:0 0 8px;font-size:24px;">Any Amount</h4>
             <p style="margin:0;font-weight:600;">Every donation helps a student step onto the mats.</p>
           </a>
@@ -422,7 +422,7 @@
 
       <!-- Big CTA Button -->
       <div style="text-align:center;margin-top:32px;">
-        <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" style="font-size:18px;padding:16px 32px;">Sponsor a Student Today</a>
+        <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" style="font-size:18px;padding:16px 32px;">Sponsor a Student Today</a>
       </div>
 
       <p style="font-size:14px;color:var(--muted);text-align:center;margin-top:20px;line-height:1.5;">
@@ -443,7 +443,7 @@
         <a href="#about">About Us</a>
         <a href="#programs">Programs</a>
         <a href="#testimonials">Success Stories</a>
-        <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G">Donate</a>
+        <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn">Donate</a>
       </nav>
     </div>
   </footer>

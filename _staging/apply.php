@@ -87,7 +87,7 @@
         </a>
         <nav class="nav">
           <a href="/" class="donate-btn" style="background:transparent;color:inherit;border-radius:8px;padding:8px 12px;border:1px solid transparent;text-decoration:none;">Back to Home</a>
-          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" class="donate-btn">Donate</a>
+          <a href="https://donate.mazloweb.com/donate/WqM4zZmgckL5AQ2VRhR4kn" class="donate-btn">Donate</a>
         </nav>
       </div>
     </div>
