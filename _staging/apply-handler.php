@@ -133,7 +133,35 @@ if ($newFile) {
 fputcsv($fh, $row);
 fclose($fh);
 
-// Email disabled per request. Data is persisted to CSV only.
+// Send notification email using PHP mail() (simple, no SMTP)
+try {
+  $toEmail = getenv('MAIL_TO') ?: 'info@cobrascholarship.org';
+  $fromEmail = getenv('MAIL_FROM') ?: 'no-reply@cobrascholarship.org';
+  $subject = 'New Scholarship Application';
+
+  $body = "New Cobra Scholarship application\n\n" .
+    "Name: {$full_name}\n" .
+    "Age: {$age_raw}\n" .
+    "Email: {$email}\n" .
+    "Phone: {$phone}\n" .
+    "City/ZIP: {$city_zip}\n" .
+    "School/Grade: {$school_grade}\n" .
+    "Guardian: {$guardian_name} ({$guardian_relationship}) / {$guardian_email} / {$guardian_phone}\n\n" .
+    "Eligibility: {$elig_str}\n" .
+    "Other hardship: {$other_hardship}\n" .
+    "Support: {$support_str}\n\n" .
+    "Why BJJ:\n{$why_bjj}\n\n" .
+    "Goals (6 months):\n{$goals}\n\n" .
+    "Additional info:\n{$additional_info}\n\n" .
+    "IP: {$ip}\nUA: {$ua}\n";
+
+  $headers = 'From: ' . $fromEmail . "\r\n" .
+             'Reply-To: ' . $email . "\r\n" .
+             'Content-Type: text/plain; charset=UTF-8';
+  @mail($toEmail, $subject, $body, $headers);
+} catch (Throwable $e) {
+  // Ignore email errors; CSV remains source of truth
+}
 
 // Success: redirect to thank you
 header('Location: /thank-you.html', true, 303);
