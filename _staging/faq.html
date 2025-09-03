@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ • Cobra Youth Scholarship Foundation</title>
+  <meta name="description" content="Frequently asked questions about Brazilian Jiu-Jitsu scholarships, eligibility, application process, and program details." />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:title" content="FAQ • Cobra Youth Scholarship Foundation">
+  <meta property="og:description" content="Frequently asked questions about our BJJ scholarship program">
+  <meta property="og:url" content="https://cobrascholarship.org/faq">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is eligible for a Cobra Youth Scholarship?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Youth ages 4-26 living in North Dallas/Plano area who demonstrate financial need through programs like free/reduced lunch, SNAP, Medicaid, or other documented hardship. Applicants must commit to regular attendance and positive behavior."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the scholarship cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Full scholarships cover monthly tuition, uniform and gear, competition fees, and provide mentorship support. We also assist with transportation when needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long do scholarships last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Scholarships are renewable every 6 months based on attendance, behavior, and continued need. We encourage long-term participation for maximum impact."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root{
+      --bg:#f6f8fb; --panel:#ffffff; --text:#0b0f16; --muted:#5b6676;
+      --brand:#16a34a; --brand-600:#15803d; --brand-light:#dcfce7; --accent:#facc15;
+      --ring:rgba(22,163,74,.18); --radius:18px; --maxw:1120px; --shadow:0 12px 28px rgba(16,24,40,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    
+    /* Header */
+    .header{background:rgba(255,255,255,.9);backdrop-filter:saturate(130%) blur(10px);position:sticky;top:0;z-index:100;border-bottom:1px solid #e7ecf2}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700;color:inherit;text-decoration:none}
+    .logo img{height:36px;width:auto}
+    .nav{display:flex;align-items:center;gap:24px}
+    .nav a{font-weight:600;text-decoration:none;color:inherit}
+    .nav a:hover{color:var(--brand)}
+    .nav a.active{color:var(--brand)}
+    .donate-btn{background:var(--brand);color:#fff;padding:10px 20px;border-radius:12px;font-weight:700;text-decoration:none}
+    .donate-btn:hover{background:var(--brand-600)}
+    
+    /* Main Content */
+    main{padding:48px 0}
+    .page-header{text-align:center;margin-bottom:64px}
+    .page-header h1{font-size:42px;line-height:1.2;margin:0 0 16px;font-weight:800}
+    .page-header p{font-size:20px;color:var(--muted);max-width:700px;margin:0 auto}
+    
+    /* FAQ Categories */
+    .faq-nav{display:flex;gap:16px;justify-content:center;margin-bottom:48px;flex-wrap:wrap}
+    .faq-nav button{background:transparent;border:2px solid var(--brand);color:var(--brand);padding:8px 20px;border-radius:12px;font-weight:600;cursor:pointer;transition:all .2s}
+    .faq-nav button:hover,.faq-nav button.active{background:var(--brand);color:#fff}
+    
+    /* FAQ Section */
+    .faq-section{margin-bottom:48px}
+    .faq-section h2{font-size:28px;margin:0 0 32px;font-weight:700;text-align:center;color:var(--brand)}
+    .faq-list{max-width:800px;margin:0 auto}
+    .faq-item{background:var(--panel);border-radius:var(--radius);margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden}
+    .faq-question{width:100%;background:none;border:none;padding:24px;text-align:left;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .2s}
+    .faq-question:hover{background:#f8f9fa}
+    .faq-icon{width:24px;height:24px;transition:transform .3s ease;color:var(--brand)}
+    .faq-answer{padding:0 24px 24px;color:var(--muted);line-height:1.6;display:none}
+    .faq-answer.open{display:block}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .faq-answer p{margin:0 0 16px}
+    .faq-answer p:last-child{margin:0}
+    .faq-answer ul{margin:16px 0;padding-left:20px}
+    .faq-answer li{margin:8px 0}
+    
+    /* Contact CTA */
+    .contact-cta{background:var(--brand-light);border-radius:var(--radius);padding:48px;text-align:center;margin-top:64px}
+    .contact-cta h2{font-size:28px;margin:0 0 16px;font-weight:700;color:var(--brand)}
+    .contact-cta p{font-size:18px;color:var(--text);margin:0 0 24px;max-width:600px;margin-left:auto;margin-right:auto}
+    .contact-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:16px;font-weight:700;text-decoration:none;font-size:16px;transition:all .2s}
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-primary:hover{background:var(--brand-600)}
+    .btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    .btn-secondary:hover{background:var(--brand);color:#fff}
+    
+    @media (max-width:767px){
+      .page-header h1{font-size:32px}
+      .faq-nav{gap:8px}
+      .faq-nav button{padding:6px 16px;font-size:14px}
+      .faq-question{padding:20px;font-size:16px}
+      .faq-answer{padding:0 20px 20px}
+      .contact-cta{padding:32px}
+      .contact-buttons{flex-direction:column;align-items:center}
+      .nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="/logo.png" alt="Cobra Youth Scholarship Foundation">
+          Cobra Scholarship
+        </a>
+        <nav class="nav">
+          <a href="/programs">Programs</a>
+          <a href="/impact">Impact</a>
+          <a href="/about">About</a>
+          <a href="/faq" class="active">FAQ</a>
+          <a href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G" class="donate-btn">Donate</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Page Header -->
+      <section class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Get answers to common questions about our scholarship program, application process, and what to expect</p>
+      </section>
+
+      <!-- FAQ Navigation -->
+      <nav class="faq-nav">
+        <button class="active" data-category="all">All Questions</button>
+        <button data-category="eligibility">Eligibility</button>
+        <button data-category="application">Application</button>
+        <button data-category="program">Program Details</button>
+        <button data-category="support">Support</button>
+      </nav>
+
+      <!-- Eligibility FAQs -->
+      <section class="faq-section" data-category="eligibility">
+        <h2>Eligibility & Requirements</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              Who is eligible for a Cobra Youth Scholarship?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Youth ages 4-26 living in North Dallas/Plano area who demonstrate financial need are eligible. We specifically look for:</p>
+              <ul>
+                <li>Free/reduced lunch program participation</li>
+                <li>SNAP, Medicaid, or housing assistance</li>
+                <li>Single-parent households</li>
+                <li>Other documented financial hardship</li>
+              </ul>
+              <p>Applicants must also commit to regular attendance and positive behavior.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              Do I need prior martial arts experience?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>No prior experience is required! Our program is designed to welcome complete beginners. Many of our most successful scholars started with zero martial arts background.</p>
+              <p>Our partner academies specialize in age-appropriate instruction that meets each student where they are.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              What if I live outside the North Dallas/Plano area?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Currently, we focus on the North Dallas and Plano communities where we have established partnerships with local academies.</p>
+              <p>However, we encourage you to apply if you're in nearby areas like Richardson, Allen, or McKinney. We evaluate each application individually and may make exceptions based on circumstances and travel feasibility.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application FAQs -->
+      <section class="faq-section" data-category="application">
+        <h2>Application Process</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              How do I apply for a scholarship?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>The application process is straightforward:</p>
+              <ul>
+                <li>Complete our online application form</li>
+                <li>Provide basic information about your situation and goals</li>
+                <li>Submit any required documentation</li>
+                <li>Participate in a brief interview if selected</li>
+              </ul>
+              <p>The entire process typically takes 1-2 weeks from application to decision.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              What documents do I need to provide?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Required documents include:</p>
+              <ul>
+                <li>Proof of age (birth certificate or school ID)</li>
+                <li>Proof of residence in service area</li>
+                <li>Documentation of financial need (if selected for final review)</li>
+                <li>Parent/guardian consent (if under 18)</li>
+              </ul>
+              <p>Don't worry if you don't have everything immediately - we can work with you to gather necessary documents.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              How long does the application process take?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Most applications are processed within 1-2 weeks. Here's the typical timeline:</p>
+              <ul>
+                <li>Application submission: Day 1</li>
+                <li>Initial review: Days 2-5</li>
+                <li>Interview (if selected): Days 6-10</li>
+                <li>Final decision: Days 10-14</li>
+              </ul>
+              <p>We notify all applicants of decisions regardless of outcome.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Program Details FAQs -->
+      <section class="faq-section" data-category="program">
+        <h2>Program Details</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              What does the scholarship cover?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Our full scholarships include:</p>
+              <ul>
+                <li>Complete monthly tuition coverage</li>
+                <li>Uniform (gi) and basic gear</li>
+                <li>Competition entry fees</li>
+                <li>One-on-one mentorship support</li>
+                <li>Life skills workshops</li>
+                <li>Transportation assistance when needed</li>
+              </ul>
+              <p>The total value is typically $2,000-3,500 per year per scholar.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              How often do I need to attend classes?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>We expect scholars to attend 2-3 classes per week consistently. This level of commitment ensures:</p>
+              <ul>
+                <li>Steady skill development and progression</li>
+                <li>Strong relationships with instructors and peers</li>
+                <li>Maximum benefit from the program investment</li>
+              </ul>
+              <p>We understand life happens - occasional absences are fine, but regular attendance is essential for success.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              How long do scholarships last?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Scholarships are renewable every 6 months based on:</p>
+              <ul>
+                <li>Regular attendance and participation</li>
+                <li>Positive attitude and respect for instructors/peers</li>
+                <li>Continued financial need</li>
+                <li>Progress toward personal goals</li>
+              </ul>
+              <p>We encourage long-term participation and have scholars who've been with us for 2+ years.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I choose which academy to train at?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>We work with you to find the best fit based on:</p>
+              <ul>
+                <li>Geographic proximity to your home/school</li>
+                <li>Schedule compatibility</li>
+                <li>Academy culture and teaching style</li>
+                <li>Age-appropriate program availability</li>
+              </ul>
+              <p>We partner with multiple high-quality academies and will match you with the best option for your situation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support FAQs -->
+      <section class="faq-section" data-category="support">
+        <h2>Support & Resources</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              What is the mentorship program?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Every scholar is paired with a dedicated mentor who provides:</p>
+              <ul>
+                <li>Academic support and tutoring</li>
+                <li>Goal setting and achievement planning</li>
+                <li>Life skills development</li>
+                <li>Career and college guidance</li>
+                <li>Personal development coaching</li>
+                <li>Someone to talk to about challenges and successes</li>
+              </ul>
+              <p>Mentors are carefully screened volunteers with backgrounds in education, martial arts, or youth development.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              What if I need transportation help?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>We understand transportation can be a barrier and offer several solutions:</p>
+              <ul>
+                <li>Carpools with other families when possible</li>
+                <li>Public transit support and training</li>
+                <li>Volunteer driver program for special circumstances</li>
+                <li>Academy location matching to minimize travel</li>
+              </ul>
+              <p>Let us know your transportation situation during the application process - we'll work with you to find a solution.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              How do you support families during the program?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Family engagement is crucial to our success. We provide:</p>
+              <ul>
+                <li>Regular progress updates and check-ins</li>
+                <li>Family events and academy visits</li>
+                <li>Parent resources and education</li>
+                <li>Connection to community support services when needed</li>
+                <li>Open communication with program staff</li>
+              </ul>
+              <p>We believe supporting the whole family creates the best outcomes for our scholars.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact CTA -->
+      <section class="contact-cta">
+        <h2>Still Have Questions?</h2>
+        <p>We're here to help! Reach out to our team for personalized answers about our program, application process, or anything else you'd like to know.</p>
+        <div class="contact-buttons">
+          <a href="/apply" class="btn btn-primary">Apply Now</a>
+          <a href="mailto:info@cobrascholarship.org" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // FAQ functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ toggle functionality
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const faqItem = this.parentElement;
+          const answer = faqItem.querySelector('.faq-answer');
+          const isOpen = faqItem.classList.contains('open');
+          
+          // Close all other FAQs
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('open');
+            item.querySelector('.faq-answer').classList.remove('open');
+          });
+          
+          // Toggle current FAQ
+          if (!isOpen) {
+            faqItem.classList.add('open');
+            answer.classList.add('open');
+          }
+        });
+      });
+      
+      // Category filtering
+      const categoryButtons = document.querySelectorAll('[data-category]');
+      const faqSections = document.querySelectorAll('.faq-section[data-category]');
+      
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.dataset.category;
+          
+          // Update active button
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Show/hide sections
+          if (category === 'all') {
+            faqSections.forEach(section => section.style.display = 'block');
+          } else {
+            faqSections.forEach(section => {
+              section.style.display = section.dataset.category === category ? 'block' : 'none';
+            });
+          }
+          
+          // Close all open FAQs when switching categories
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('open');
+            item.querySelector('.faq-answer').classList.remove('open');
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

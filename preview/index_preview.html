@@ -3,10 +3,76 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cobra Youth Scholarship Foundation</title>
-  <meta name="description" content="Changing lives through Brazilian Jiu-Jitsu scholarships for underserved youth in Plano, TX." />
+  <title>Cobra Youth Scholarship Foundation - Brazilian Jiu-Jitsu Scholarships for Underserved Youth in Plano, TX</title>
+  <meta name="description" content="The Cobra Youth Scholarship Foundation provides Brazilian Jiu-Jitsu scholarships for underserved youth in Plano and North Dallas. Building confidence, discipline, and life skills through martial arts." />
+  <link rel="canonical" href="https://cobrascholarship.org/" />
+  
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content="Cobra Youth Scholarship Foundation - BJJ Scholarships for Youth" />
+  <meta property="og:description" content="Building confidence, discipline, and life skills through Brazilian Jiu-Jitsu scholarships for underserved youth in Plano, TX." />
+  <meta property="og:url" content="https://cobrascholarship.org/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cobrascholarship.org/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cobra Youth Scholarship Foundation - BJJ Scholarships for Youth" />
+  <meta name="twitter:description" content="Building confidence, discipline, and life skills through Brazilian Jiu-Jitsu scholarships for underserved youth in Plano, TX." />
+  <meta name="twitter:image" content="https://cobrascholarship.org/logo.png" />
 
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="alternate icon" type="image/png" href="favicon.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://cobrascholarship.org/#organization",
+        "name": "Cobra Youth Scholarship Foundation",
+        "url": "https://cobrascholarship.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cobrascholarship.org/logo.png"
+        },
+        "description": "Nonprofit organization providing Brazilian Jiu-Jitsu scholarships for underserved youth in Plano, TX and North Dallas.",
+        "foundingDate": "2023",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Plano, TX and North Dallas"
+        },
+        "sameAs": [
+          "https://www.facebook.com/cobrascholarship",
+          "https://www.instagram.com/cobrascholarship",
+          "https://www.linkedin.com/company/cobrascholarship"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@cobrascholarship.org",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cobrascholarship.org/#website",
+        "url": "https://cobrascholarship.org/",
+        "name": "Cobra Youth Scholarship Foundation",
+        "publisher": {
+          "@id": "https://cobrascholarship.org/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://cobrascholarship.org/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -36,6 +102,8 @@
       -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
     }
     a{color:inherit}
+    a:focus{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+    .btn:focus{outline:2px solid rgba(255,255,255,.8);outline-offset:2px}
 
     /* Layout shell */
     .container{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
@@ -138,24 +206,19 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="header" aria-label="Site header">
+  <header class="header" role="banner">
     <div class="header-inner">
       <a class="brand" href="/">
-        <img src="/logo.png" alt="Cobra Youth Scholarship Foundation logo">
+        <picture>
+          <source srcset="/logo.webp" type="image/webp">
+          <img src="/logo.png" alt="Cobra Youth Scholarship Foundation logo - stylized cobra emblem" width="46" height="46">
+        </picture>
         <div class="title">
           Cobra Youth
           <span class="sub">Scholarship Foundation</span>
         </div>
       </a>
-      <div style="display:flex;gap:18px;align-items:center;">
-        <nav aria-label="Primary tabs" style="display:flex;gap:14px;align-items:center;margin-right:12px;">
-          <a href="#programs" class="btn btn-ghost" style="padding:8px 12px;border-radius:12px;">What We Do</a>
-          <a href="#about" class="btn btn-ghost" style="padding:8px 12px;border-radius:12px;">Where We Serve</a>
-          <a href="#who-qualifies" class="btn btn-ghost" style="padding:8px 12px;border-radius:12px;">Who Qualifies</a>
-          <a href="#results" class="btn btn-ghost" style="padding:8px 12px;border-radius:12px;">The Results</a>
-          <a href="#testimonials" class="btn btn-ghost" style="padding:8px 12px;border-radius:12px;">Voices</a>
-          <a href="#donate" class="btn btn-ghost" style="padding:8px 12px;border-radius:12px;">Every Dollar Builds a Future</a>
-        </nav>
+      <div style="display:flex;gap:12px;">
         <a class="btn btn-ghost" href="apply.html">Apply</a>
         <a class="btn btn-primary" href="https://donate.mazloweb.com/donate/FfgF23UjqCPgVmtfK8Gw1G">Donate</a>
       </div>
@@ -163,7 +226,7 @@
   </header>
 
   <!-- Hero -->
-  <main class="container" aria-label="Main content">
+  <main class="container" role="main">
     <section class="hero" aria-label="Foundation introduction">
       <div class="hero-inner">
         <h1 class="h1">Cobra Scholarship Program</h1>
@@ -181,7 +244,10 @@
 
         <!-- Hero photo: Image 1 - Kids in BJJ formation -->
         <div class="hero-photo">
-          <img src="/images/hero.jpg" alt="Young students practicing Brazilian Jiu-Jitsu in formation at Cobra BJJ academy" style="width:100%;height:400px;object-fit:cover;object-position:center;" onerror="this.parentElement.style.display='none'">
+          <picture>
+            <source srcset="/images/hero.webp" type="image/webp">
+            <img src="/images/hero.jpg" alt="Young Brazilian Jiu-Jitsu students in training uniforms practicing techniques in formation on blue mats at Cobra BJJ academy in Plano, Texas" style="width:100%;height:400px;object-fit:cover;object-position:center;" width="1920" height="1080" loading="eager" onerror="this.parentElement.style.display='none'">
+          </picture>
         </div>
       </div>
     </section>
@@ -241,8 +307,8 @@
       </div>
     </section>
 
-  <!-- Who Qualifies -->
-  <section id="who-qualifies" class="block" aria-label="Who qualifies">
+    <!-- Who Qualifies -->
+    <section class="block" aria-label="Who qualifies">
       <h2>Who Qualifies</h2>
       <div class="block-content">
         <p>Scholarships are awarded to youth and young adults <strong>ages 4-26</strong> living in the North Dallas area, with priority given to:</p>
@@ -257,7 +323,7 @@
     </section>
 
     <!-- Impact -->
-    <section id="results" class="block" aria-label="Our impact">
+    <section class="block" aria-label="Our impact">
       <h2>The Results</h2>
       <div class="block-content">
         <p style="font-style:italic;color:var(--brand);font-size:18px;margin-bottom:24px;">This is how our students' lives change after joining the program.</p>
@@ -366,14 +432,14 @@
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-inner">
       <div>
         <div>&copy; <span id="year"></span> Cobra Youth Scholarship Foundation</div>
         <div style="font-size:12px;margin-top:4px;opacity:0.8;">Fiscally sponsored by FSA (EIN: 85-0839183)</div>
         <div style="margin-top:8px;"><a href="mailto:info@cobrascholarship.org" style="color:inherit;text-decoration:none;">📧 info@cobrascholarship.org</a></div>
       </div>
-      <nav class="foot-nav" aria-label="Footer">
+      <nav class="foot-nav" role="navigation" aria-label="Footer navigation">
         <a href="#about">About Us</a>
         <a href="#programs">Programs</a>
         <a href="#testimonials">Success Stories</a>
