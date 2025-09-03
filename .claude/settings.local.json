@@ -11,7 +11,8 @@
       "Bash(command:*)",
       "Bash(/dev/null)",
       "Bash(brew install:*)",
-      "Read(/tmp/**)"
+      "Read(/tmp/**)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []
