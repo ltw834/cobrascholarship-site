@@ -137,6 +137,7 @@ fclose($fh);
 try {
   $toEmail = getenv('MAIL_TO') ?: 'info@cobrascholarship.org';
   $fromEmail = getenv('MAIL_FROM') ?: 'info@cobrascholarship.org';
+  $fromName = 'Cobra Scholarship';
   $subject = 'New Scholarship Application';
 
   $body = "New Cobra Scholarship application\n\n" .
@@ -155,10 +156,18 @@ try {
     "Additional info:\n{$additional_info}\n\n" .
     "IP: {$ip}\nUA: {$ua}\n";
 
-  $headers = 'From: ' . $fromEmail . "\r\n" .
-             'Reply-To: ' . $email . "\r\n" .
-             'Content-Type: text/plain; charset=UTF-8';
-  @mail($toEmail, $subject, $body, $headers);
+  $headers = 'From: ' . $fromName . ' <' . $fromEmail . ">\r\n" .
+             'Reply-To: ' . $email . ">\r\n" .
+             'MIME-Version: 1.0' . ">\r\n" .
+             'Content-Type: text/plain; charset=UTF-8' . ">\r\n" .
+             'X-Mailer: PHP/' . phpversion();
+  $params = '-f ' . $fromEmail; // set envelope sender for better deliverability
+  $ok = @mail($toEmail, $subject, $body, $headers, $params);
+  if (!$ok) {
+    $logDir = __DIR__ . '/backups';
+    if (!is_dir($logDir)) { @mkdir($logDir, 0775, true); }
+    @file_put_contents($logDir . '/mail_error.log', date('c') . " FAILED to send notification to {$toEmail}\n", FILE_APPEND);
+  }
 } catch (Throwable $e) {
   // Ignore email errors; CSV remains source of truth
 }
