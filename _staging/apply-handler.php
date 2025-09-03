@@ -136,7 +136,7 @@ fclose($fh);
 // Send notification email using PHP mail() (simple, no SMTP)
 try {
   $toEmail = getenv('MAIL_TO') ?: 'info@cobrascholarship.org';
-  $fromEmail = getenv('MAIL_FROM') ?: 'no-reply@cobrascholarship.org';
+  $fromEmail = getenv('MAIL_FROM') ?: 'info@cobrascholarship.org';
   $subject = 'New Scholarship Application';
 
   $body = "New Cobra Scholarship application\n\n" .
