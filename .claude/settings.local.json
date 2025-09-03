@@ -15,7 +15,10 @@
       "Bash(git checkout:*)",
       "Bash(php -l:*)",
       "Bash(node:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(mkdir:*)",
+      "Bash(git fetch:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []
